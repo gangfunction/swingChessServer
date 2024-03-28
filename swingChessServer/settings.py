@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -69,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'swingChessServer.wsgi.application'
-
+ASGI_APPLICATION = 'swingChessServer.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'swingChessServer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'swingChess',
+        'NAME': 'swingchess',
         'USER': 'admin',
         'PASSWORD': 'admin',
         'HOST': 'localhost',
