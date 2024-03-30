@@ -1,5 +1,5 @@
 """
-URL configuration for swingChessServer project.
+URL configuration for swingchess project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-
-from swingChessServer import views
+from swingchess import models
+from swingchess import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', auth_views.LoginView.as_view, name='login'),
-    path('logout/', auth_views.LoginView.as_view, name= 'logout'),
-    path('log/', views.log_message, name='log_message')
+    path('api/login/', models.login, name='login'),
+    path('api/check_id/', models.check_id, name='check_id'),
+    path('api/register/', models.register, name='register'),
+    path('api/logout/', auth_views.LoginView.as_view, name= 'logout'),
+    path('log/', views.log_message, name='log_message'),
 ]

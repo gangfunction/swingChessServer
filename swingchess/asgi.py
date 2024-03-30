@@ -1,5 +1,5 @@
 """
-ASGI config for swingChessServer project.
+ASGI config for swingchess project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -12,15 +12,15 @@ import os
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
-import swingChessServer.routing
+import swingchess.routing
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'swingChessServer.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'swingchess.settings')
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "websocket": AuthMiddlewareStack(
         URLRouter(
-            swingChessServer.routing.websocket_urlpatterns
+            swingchess.routing.websocket_urlpatterns
         )
     )
 })
